@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Parse
+import Bolts
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        Parse.enableLocalDatastore()
+        
+        Parse.setApplicationId("PeyIv22Dbqxb52kNtjEqthDLZmNNy7RykGz0UUaC",
+            clientKey: "U8l0cZnRhQOBqC1HAY6VxqYPsrh4w4EePVLC0JRF")
+        
+        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
         let color = UIColor(red: 247.0/255.0, green: 150.0/255.0, blue: 30.0/255.0, alpha: 1.0)
         
