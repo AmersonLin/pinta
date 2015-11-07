@@ -18,6 +18,7 @@
 		5DA2A4941BEE30B400B4D24C /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA2A4931BEE30B400B4D24C /* ThirdViewController.swift */; };
 		5DA2A4961BEE316700B4D24C /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA2A4951BEE316700B4D24C /* FourthViewController.swift */; };
 		5DA2A4981BEE317600B4D24C /* FifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA2A4971BEE317600B4D24C /* FifthViewController.swift */; };
+		67E44A001BEE45470031A4D9 /* Uber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E449FF1BEE45470031A4D9 /* Uber.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		5DA2A4931BEE30B400B4D24C /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThirdViewController.swift; path = ../ThirdViewController.swift; sourceTree = "<group>"; };
 		5DA2A4951BEE316700B4D24C /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FourthViewController.swift; path = ../FourthViewController.swift; sourceTree = "<group>"; };
 		5DA2A4971BEE317600B4D24C /* FifthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FifthViewController.swift; path = ../FifthViewController.swift; sourceTree = "<group>"; };
+		67E449FF1BEE45470031A4D9 /* Uber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Uber.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		5DA2A4621BEE285F00B4D24C /* Pinta trial */ = {
 			isa = PBXGroup;
 			children = (
+				67E449FF1BEE45470031A4D9 /* Uber.swift */,
 				5DA2A4631BEE285F00B4D24C /* AppDelegate.swift */,
 				5DA2A4651BEE285F00B4D24C /* FirstViewController.swift */,
 				5DA2A4671BEE285F00B4D24C /* SecondViewController.swift */,
@@ -271,6 +274,7 @@
 				5DA2A4981BEE317600B4D24C /* FifthViewController.swift in Sources */,
 				5DA2A4681BEE285F00B4D24C /* SecondViewController.swift in Sources */,
 				5DA2A4641BEE285F00B4D24C /* AppDelegate.swift in Sources */,
+				67E44A001BEE45470031A4D9 /* Uber.swift in Sources */,
 				5DA2A4941BEE30B400B4D24C /* ThirdViewController.swift in Sources */,
 				5DA2A4661BEE285F00B4D24C /* FirstViewController.swift in Sources */,
 				5DA2A4961BEE316700B4D24C /* FourthViewController.swift in Sources */,
