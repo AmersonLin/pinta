@@ -9,12 +9,21 @@
 import UIKit
 import MapKit
 
-class ThirdViewController: UIViewController {
+class ThirdViewController: UIViewController, CLLocationManagerDelegate {
+    let locationManager = CLLocationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getUber()
-        // Do any additional setup after loading the view.
+        
+        self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            print("Location services enabled")
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,24 +31,21 @@ class ThirdViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Received location update")
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        getUber(locValue)
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+    }
 
-    func getUber(){
-        print("In getUber")
-        
-        // The only required property - pickupLocation
-        let pickupLocation = CLLocationCoordinate2D(latitude: 1.30199, longitude: 103.85160)
-        
-        // Create an Uber instance
+    func getUber(pickupLocation: CLLocationCoordinate2D){
         let uber = Uber(pickupLocation: pickupLocation)
-        
-        // Set a few optional properties
-        uber.pickupNickname = "Code Fellows"
         
         uber.dropoffLocation = CLLocationCoordinate2D(latitude: 1.35463, longitude: 103.76749)
         uber.dropoffNickname = "Hume"
-        
-        // Let's do it!
+    
         uber.deepLink()
     }
+    
 
 }
