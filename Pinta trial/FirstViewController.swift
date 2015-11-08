@@ -49,6 +49,7 @@ class FirstViewController: UIViewController {
                 self.messageLabel.text = "All Fields Required"
             }
         }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

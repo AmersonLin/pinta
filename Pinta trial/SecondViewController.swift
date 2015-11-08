@@ -25,53 +25,26 @@ class SecondViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        let testObject = PFObject(className: "TestObject")
-        testObject["foo"] = "bar"
-        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            print("Object has been saved.")
-        }
-        sendMessage()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-    func sendMessage(){
+    // MARK: Actions
+
+    @IBAction func saveContactAction(sender: UIButton) {
         let data = [
             "To"   : "+6597354745",
             "From" : "+12012414207",
             "Body" : "Hola Pinta"
         ];
-
+        
         Alamofire.request(.POST, "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages", parameters: data, encoding: .URL)
             .authenticate(user: accountSID, password: authToken)
             .responseString { response in
                 debugPrint(response)
-//                if let JSON = response.result.value {
-//                    print("JSON: \(JSON)")
-//                }
         }
-    }
-
-
-    // MARK: Actions
-
-    @IBAction func saveContactAction(sender: UIButton) {
-        let contact = PFObject(className: "Contact")
-        contact.setObject(nameTextField.text!, forKey: "name")
-        contact.setObject(numberTextField.text!, forKey: "number")
-        contact.saveInBackgroundWithBlock {
-            (success: Bool, error: NSError?) -> Void in
-            if (success) {
-                print("Object created with id: (gameScore.objectId)")
-            } else {
-                print("%@", error)
-            }
-        }
-        print("Save button clicked")
     }
 }
 
