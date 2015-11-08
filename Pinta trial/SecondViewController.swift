@@ -16,6 +16,13 @@ class SecondViewController: UIViewController {
     let authToken = "35097306a265deb5af3c137f5a5a3f1d"
 
 
+    @IBOutlet weak var nameTextField: UITextField!
+
+    @IBOutlet weak var numberTextField: UITextField!
+
+    @IBOutlet weak var saveContactButton: UIButton!
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -48,6 +55,29 @@ class SecondViewController: UIViewController {
 //                    print("JSON: \(JSON)")
 //                }
         }
+    }
+
+    // MARK: Actions
+
+    @IBAction func saveContactAction(sender: UIButton) {
+        var contact = PFObject(className: "GameScore")
+        contact.setObject(nameTextField.text, forKey: "name")
+        contact.setObject(numberTextField.text, forKey: "number")
+        gameScore.saveInBackgroundWithBlock {
+            (success: Bool!, error: NSError!) -> Void in
+            if success {
+                NSLog("Object created with id: (gameScore.objectId)")
+            } else {
+                NSLog("%@", error)
+            }
+        }
+
+        testObject["foo"] = "bar"
+        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            print("Object has been saved.")
+        }
+
+        print("Save button clicked")
     }
 }
 
