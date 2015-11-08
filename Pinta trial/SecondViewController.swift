@@ -50,33 +50,27 @@ class SecondViewController: UIViewController {
             .authenticate(user: accountSID, password: authToken)
             .responseString { response in
                 debugPrint(response)
-
 //                if let JSON = response.result.value {
 //                    print("JSON: \(JSON)")
 //                }
         }
     }
 
+
     // MARK: Actions
 
     @IBAction func saveContactAction(sender: UIButton) {
-        var contact = PFObject(className: "GameScore")
-        contact.setObject(nameTextField.text, forKey: "name")
-        contact.setObject(numberTextField.text, forKey: "number")
-        gameScore.saveInBackgroundWithBlock {
-            (success: Bool!, error: NSError!) -> Void in
-            if success {
-                NSLog("Object created with id: (gameScore.objectId)")
+        let contact = PFObject(className: "Contact")
+        contact.setObject(nameTextField.text!, forKey: "name")
+        contact.setObject(numberTextField.text!, forKey: "number")
+        contact.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                print("Object created with id: (gameScore.objectId)")
             } else {
-                NSLog("%@", error)
+                print("%@", error)
             }
         }
-
-        testObject["foo"] = "bar"
-        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            print("Object has been saved.")
-        }
-
         print("Save button clicked")
     }
 }
