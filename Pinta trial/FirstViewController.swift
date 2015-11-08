@@ -51,6 +51,7 @@ class FirstViewController: UIViewController {
         
         user.email = emlEntered
         
+        /*
         user.signUpInBackgroundWithBlock {
             
             (succeeded: Bool!, error: NSError!) -> Void in
@@ -68,8 +69,8 @@ class FirstViewController: UIViewController {
             }
             
         }
+        */
         
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
