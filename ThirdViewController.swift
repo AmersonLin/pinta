@@ -10,7 +10,13 @@ import UIKit
 import MapKit
 
 class ThirdViewController: UIViewController, CLLocationManagerDelegate {
+    @IBOutlet weak var getARideButton: UIButton!
+    
     let locationManager = CLLocationManager()
+    var location = CLLocationCoordinate2D(
+        latitude: 1.30199,
+        longitude: 103.85160
+    )
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,18 +38,14 @@ class ThirdViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("Received location update")
-        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        getUber(locValue)
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        self.location = manager.location!.coordinate
     }
-
-    func getUber(pickupLocation: CLLocationCoordinate2D){
-        let uber = Uber(pickupLocation: pickupLocation)
-        
+    
+    // Mark: Actions
+    @IBAction func getARideAction(sender: UIButton) {
+        let uber = Uber(pickupLocation: self.location)
         uber.dropoffLocation = CLLocationCoordinate2D(latitude: 1.35463, longitude: 103.76749)
         uber.dropoffNickname = "Hume"
-    
         uber.deepLink()
     }
     

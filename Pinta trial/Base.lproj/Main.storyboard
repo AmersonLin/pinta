@@ -49,7 +49,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iKo-aD-JUg" userLabel="loginVerifyButton">
                                 <rect key="frame" x="95" y="364" width="216" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Signup"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Signup">
+                                    <color key="titleColor" red="0.017479482323232376" green="0.017479482323232376" blue="0.017479482323232376" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                         </subviews>
                         <animations/>
@@ -88,12 +91,25 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8i-sl-6uP">
+                                <rect key="frame" x="123" y="474" width="169" height="66"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Get a Ride!">
+                                    <color key="titleColor" red="0.017479482323232376" green="0.017479482323232376" blue="0.017479482323232376" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="getARideAction:" destination="wSV-qB-ClG" eventType="touchUpInside" id="VMJ-ge-4eb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Safe Ride" image="saferide" id="8aG-5i-2Hv"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="getARideButton" destination="e8i-sl-6uP" id="gNf-QD-Qiy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DPs-Ab-Hgs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -160,18 +176,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                                 <animations/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kaJ-R1-9bU">
-                                <rect key="frame" x="184" y="537" width="46" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="randomAnalyse:" destination="QtN-FF-mGI" eventType="touchUpInside" id="3zS-8C-mEy"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q6V-0o-AFP">
                                 <rect key="frame" x="47" y="202" width="320" height="224"/>
                                 <animations/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kaJ-R1-9bU">
+                                <rect key="frame" x="16" y="446" width="383" height="113"/>
+                                <animations/>
+                                <state key="normal" image="analysing"/>
+                                <connections>
+                                    <action selector="randomAnalyse:" destination="QtN-FF-mGI" eventType="touchUpInside" id="3zS-8C-mEy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -203,14 +219,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                                 <animations/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlh-Qc-lic">
-                                <rect key="frame" x="189" y="604" width="36" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mum" translatesAutoresizingMaskIntoConstraints="NO" id="aRI-rG-7Xn">
+                                <rect key="frame" x="47" y="283" width="320" height="101"/>
                                 <animations/>
-                                <state key="normal" title="Send"/>
-                                <connections>
-                                    <action selector="saveContactAction:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="VV3-CG-Mgn"/>
-                                </connections>
-                            </button>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="husband" translatesAutoresizingMaskIntoConstraints="NO" id="snf-NZ-Qzo">
                                 <rect key="frame" x="54" y="186" width="320" height="101"/>
                                 <animations/>
@@ -219,10 +231,17 @@
                                 <rect key="frame" x="54" y="384" width="320" height="101"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mum" translatesAutoresizingMaskIntoConstraints="NO" id="aRI-rG-7Xn">
-                                <rect key="frame" x="47" y="283" width="320" height="101"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlh-Qc-lic">
+                                <rect key="frame" x="152" y="493" width="111" height="89"/>
                                 <animations/>
-                            </imageView>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" red="0.017479482323232376" green="0.017479482323232376" blue="0.017479482323232376" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveContactAction:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="VV3-CG-Mgn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -263,6 +282,7 @@
     </scenes>
     <resources>
         <image name="App Background iphone 6" width="740" height="1334"/>
+        <image name="analysing" width="377" height="122"/>
         <image name="bro" width="279" height="97"/>
         <image name="drinkistory" width="42" height="41"/>
         <image name="history" width="400" height="380"/>
